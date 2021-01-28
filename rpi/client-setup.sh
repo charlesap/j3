@@ -10,7 +10,16 @@ echo
 sudo apt update -y
 sudo apt upgrade -y
 
+if [ ! -f passchanged ] ; then
+	echo "Please change the root password (if you have not already)"
+	sudo passwd root
+	echo "Please change the pi user password (if you have not already)"
+	passwd
+fi
+
 sudo apt install -y openssh-server
+sudo systemctl enable ssh
+sudo systemctl start ssh
 
 sudo apt install -y --no-install-recommends build-essential librtaudio-dev qt5-default autoconf automake libtool make libjack-jackd2-dev qjackctl audacity git
 #(choose Yes in to allow user Realtime privieleges in Jackd)
