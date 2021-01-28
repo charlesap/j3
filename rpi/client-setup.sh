@@ -25,7 +25,7 @@ sudo apt install -y --no-install-recommends build-essential librtaudio-dev qt5-d
 #(choose Yes in to allow user Realtime privieleges in Jackd)
 
 pushd .
-cd ; git submodule update --init
+cd ..; git submodule update --init
 popd
 
 
