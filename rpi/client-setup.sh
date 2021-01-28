@@ -9,13 +9,14 @@ echo
 
 sudo apt update -y
 sudo apt upgrade -y
+
+sudo apt install -y openssh-server
+
 sudo apt install -y --no-install-recommends build-essential librtaudio-dev qt5-default autoconf automake libtool make libjack-jackd2-dev qjackctl audacity git
 #(choose Yes in to allow user Realtime privieleges in Jackd)
 
 pushd .
-cd ../jacktrip; git submodule update
-cd ../jamulus; git submodule update
-cd ../jitsi-meet; git submodule update
+cd ; git submodule update --init
 popd
 
 
