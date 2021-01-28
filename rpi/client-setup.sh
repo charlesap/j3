@@ -16,7 +16,7 @@ if [ ! -f passchanged ] ; then
 	RR=$?
 	if [ $RR -eq 0 ]; then	
 		echo "Please change the pi user password (if you have not already)"
-		passwd
+		sudo passwd pi
 		RU=$?
 		if [ $RU -eq 0 ]; then
 			touch passchanged
