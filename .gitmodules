@@ -1,0 +1,9 @@
+[submodule "jacktrip"]
+	path = jacktrip
+	url = https://github.com/jacktrip/jacktrip
+[submodule "jamulus"]
+	path = jamulus
+	url = https://github.com/corrados/jamulus
+[submodule "jitsi-meet"]
+	path = jitsi-meet
+	url = https://github.com/jitsi/jitsi-meet
