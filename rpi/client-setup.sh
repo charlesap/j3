@@ -13,8 +13,15 @@ sudo apt upgrade -y
 if [ ! -f passchanged ] ; then
 	echo "Please change the root password (if you have not already)"
 	sudo passwd root
-	echo "Please change the pi user password (if you have not already)"
-	passwd
+	RR=$?
+	if [ $RR -eq 0 ]; then	
+		echo "Please change the pi user password (if you have not already)"
+		passwd
+		RU=$?
+		if [ $RU -eq 0 ]; then
+			touch passchanged
+		fi
+	fi
 fi
 
 sudo apt install -y openssh-server
