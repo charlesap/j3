@@ -28,11 +28,25 @@ sudo apt install -y openssh-server
 sudo systemctl enable ssh
 sudo systemctl start ssh
 
-sudo apt install -y --no-install-recommends build-essential librtaudio-dev qt5-default autoconf automake libtool make libjack-jackd2-dev qjackctl audacity git
+sudo apt install -y --no-install-recommends build-essential librtaudio-dev qt5-default autoconf automake libtool make libjack-jackd2-dev qjackctl audacity qt5-qmake qtdeclarative5-dev qttools5-dev-tools git
 #(choose Yes in to allow user Realtime privieleges in Jackd)
 
 pushd .
 cd ..; git submodule update --init
+popd
+
+pushd .
+cd ../jacktrip/src/
+./build
+cd ..
+sudo cp builddir/jacktrip /usr/local/bin/
+sudo chmod 755 /usr/local/bin/jacktrip
+
+cd ../jamulus
+qmake Jamulus.pro
+make clean
+make
+sudo make install
 popd
 
 
