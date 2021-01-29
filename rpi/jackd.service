@@ -1,0 +1,13 @@
+[Unit]
+AssertPathExists=/home/pi
+
+[Service]
+WorkingDirectory=/home/pi
+Enviroment=JACK_NO_AUDIO_RESERVATION=1
+ExecStart=/usr/bin/jackd -d alsa -d hw:`cat /proc/asound/cards | grep '\[' | tail -n 1 | sed -e 's/.*\[\(.*\) *\].*/\1/g'` -p 128 -r 48000 -n 8
+Restart=always
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target
